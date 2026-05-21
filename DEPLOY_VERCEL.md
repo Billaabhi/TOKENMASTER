@@ -26,3 +26,16 @@ npx vercel --prod
 ## Notes
 - No build step required.
 - If prompted for framework, choose **Other**.
+
+## 4) Enable auto-deploy via GitHub Actions
+Add these repository secrets in GitHub:
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+Workflow file:
+- `.github/workflows/vercel-deploy.yml`
+
+Behavior:
+- Pull Requests to `main` => preview deploy
+- Push to `main` => production deploy
