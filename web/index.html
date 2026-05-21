@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude Efficiency OS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>CLAUDE EFFICIENCY OS</h1>
+    <p>Intent → Skill → Compression → Execution → Memory</p>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <button class="tab active" data-tab="dashboard">Dashboard</button>
+      <button class="tab" data-tab="skill-builder">Skill Builder</button>
+      <button class="tab" data-tab="prompt-optimizer">Prompt Optimizer</button>
+      <button class="tab" data-tab="token-center">Token Center</button>
+      <button class="tab" data-tab="workflow-vault">Workflow Vault</button>
+      <button class="tab" data-tab="coach">Claude Coach</button>
+      <button class="tab" data-tab="code-coach">Claude Code Coach</button>
+      <button class="tab" data-tab="analytics">Analytics</button>
+    </aside>
+
+    <section class="content">
+      <article id="dashboard" class="panel active">
+        <h2>Dashboard</h2>
+        <div class="cards">
+          <div class="card"><h3>Token Saved Today</h3><p id="tokenSaved">0</p></div>
+          <div class="card"><h3>Skills Created</h3><p id="skillsCreated">0</p></div>
+          <div class="card"><h3>Workflow Reuse</h3><p id="workflowReuse">0</p></div>
+          <div class="card"><h3>Efficiency Score</h3><p id="effScore">0%</p></div>
+        </div>
+      </article>
+
+      <article id="skill-builder" class="panel">
+        <h2>Skill Builder</h2>
+        <form id="skillForm" class="grid">
+          <label>Skill Name <input name="name" required placeholder="dashboard-architect" /></label>
+          <label>Identity <input name="identity" required placeholder="Senior Dashboard Architect" /></label>
+          <label>Mission <input name="mission" required placeholder="Create reusable dashboard delivery workflows" /></label>
+          <button type="submit">Generate SKILL.md</button>
+        </form>
+        <pre id="skillOutput"></pre>
+      </article>
+
+      <article id="prompt-optimizer" class="panel">
+        <h2>Prompt Optimizer</h2>
+        <textarea id="promptInput" rows="6" placeholder="Paste long prompt..."></textarea>
+        <button id="compressBtn">Compress Prompt</button>
+        <p><strong>Compressed Object:</strong> <span id="compressedCode">-</span></p>
+        <pre id="compressedPayload"></pre>
+      </article>
+
+      <article id="token-center" class="panel">
+        <h2>Token Center</h2>
+        <form id="tokenForm" class="grid">
+          <label>Input Tokens <input type="number" name="inputTokens" value="3400" /></label>
+          <label>Output Tokens <input type="number" name="outputTokens" value="900" /></label>
+          <label>Repeated Context <input type="number" name="repeatedContextTokens" value="1200" /></label>
+          <label>Retries <input type="number" name="retries" value="1" /></label>
+          <label>Overflow Events <input type="number" name="overflowEvents" value="0" /></label>
+          <label>Compression Applied
+            <select name="compressionApplied"><option value="true">true</option><option value="false">false</option></select>
+          </label>
+          <button type="submit">Calculate Waste Score</button>
+        </form>
+        <p><strong>Token Waste Score:</strong> <span id="wasteScore">-</span></p>
+      </article>
+
+      <article id="workflow-vault" class="panel">
+        <h2>Workflow Vault</h2>
+        <ul id="vaultList"></ul>
+      </article>
+
+      <article id="coach" class="panel">
+        <h2>Claude Coach</h2>
+        <ul>
+          <li>Prompt repetitive → Convert to SKILL_001</li>
+          <li>Context too large → Use FLOW_001 + ARCH_001</li>
+          <li>Token waste detected → compress and reuse object codes</li>
+        </ul>
+      </article>
+
+      <article id="code-coach" class="panel">
+        <h2>Claude Code Coach</h2>
+        <p><strong>Bad:</strong> "rewrite app"</p>
+        <p><strong>Good:</strong> "modify AUTH_001 login validator, keep existing routes"</p>
+      </article>
+
+      <article id="analytics" class="panel">
+        <h2>Analytics</h2>
+        <table>
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Token Reduction %</td><td id="tokenReduction">31%</td></tr>
+            <tr><td>Top Repeated Prompt</td><td>"build full app from scratch"</td></tr>
+            <tr><td>Top Skill</td><td>dashboard-architect</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
